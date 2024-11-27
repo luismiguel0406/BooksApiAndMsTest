@@ -38,7 +38,7 @@ namespace BooksApi.Services
 
             var response =  await _httpClient.PostAsync($"{_baseUrl}/books", body );
             var newBook = await response.Content.ReadFromJsonAsync<Book>();
-            var result = newBook.Result;
+            var result = newBook;
             return result!;
         }
 
@@ -57,7 +57,7 @@ namespace BooksApi.Services
 
             var response = await _httpClient.PutAsync($"{_baseUrl}/books/{id}", body);
             var updatedBook = await response.Content.ReadFromJsonAsync<Book>();
-            var result = updatedBook.Result;
+            var result = updatedBook;
             return result!;
         }
     }
